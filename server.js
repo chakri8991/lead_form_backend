@@ -25,8 +25,9 @@ app.post("/",async(req,res)=>{
 
     try {
         const response=await fetch(n8nUrl,options)
-        const data=response.json()
-        res.send(data)
+        console.log("Forwarded to n8n");
+        res.send("Lead received and forwarded to n8n");
+
     }catch(error){
         console.log("Failed to forward to n8n :",error.message)
     }
