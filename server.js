@@ -21,6 +21,7 @@ app.post("/",async(req,res)=>{
         body:JSON.stringify({name,email,company,message})
 
     }
+    res.send("its working)
 
     try {
         await fetch(n8nUrl,options)
