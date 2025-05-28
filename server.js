@@ -3,7 +3,11 @@ const app=express();
 const cors=require('cors')
 
 
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+  origin: "https://your-vercel-app.vercel.app", 
+}));
+
 app.use(express.json())
 app.listen(5000,()=>{
     console.log("Server is running on port 5000")
