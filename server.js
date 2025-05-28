@@ -15,16 +15,18 @@ app.post("/",async(req,res)=>{
     const n8nUrl="http://localhost:5678/webhook-test/webhook"
     let options={
         method:"POST",
-        Headers:{
+        headers:{
             "Content-Type":"application/json",
         },
         body:JSON.stringify({name,email,company,message})
 
     }
-    res.send("its working)
+
 
     try {
-        await fetch(n8nUrl,options)
+        const response=await fetch(n8nUrl,options)
+        const data=response.json()
+        res.send(data)
     }catch(error){
         console.log("Failed to forward to n8n :",error.message)
     }
